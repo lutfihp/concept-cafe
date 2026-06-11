@@ -24,8 +24,13 @@ npm run build      # static export → out/
 npx tsc --noEmit   # type check
 ```
 
+## Git & deployment
+- Repo: `https://github.com/lutfihp/concept-cafe.git`, branch `main`
+- `handoffs/` is gitignored (design prototype files, not project source)
+- See `DEPLOYMENT.md` at project root for the full VPS deploy runbook (FileZilla SFTP → `/var/www/concept-cafe`, nginx config, Certbot HTTPS, re-deploy workflow)
+
 ## Project status: COMPLETE
-All 11 implementation tasks done. `npm run build` produces a clean static export with zero errors.
+All implementation tasks done. `npm run build` produces a clean static export with zero errors. Favicon assets added. Git initialized and pushed to GitHub.
 
 ### File map
 ```
@@ -34,6 +39,9 @@ app/
   page.tsx            landing page (all 9 sections)
   globals.css         Tailwind + base reset + no-scrollbar utility
   menu/page.tsx       menu page
+  icon.svg            brand favicon (SVG — tomato tile + cream ◓ mark)
+  icon.png            32×32 PNG favicon fallback
+  apple-icon.png      180×180 Apple touch icon
 
 components/
   ui/
@@ -81,7 +89,7 @@ lib/
 - Animation: `marquee` keyframe (CSS marquee scroll)
 
 ## Possible next steps
-- Deploy to Netlify / Vercel / GitHub Pages (just push `out/`)
+- **Deploy to VPS** — follow `DEPLOYMENT.md` (nginx + Certbot already documented)
 - Replace Pexels placeholder images with real licensed photos
 - Swap CSS map placeholder in VisitSection with a real Google Maps embed
 - Wire NewsletterCTA to a real form backend (Mailchimp, ConvertKit, etc.)
